@@ -6,4 +6,4 @@ routes.get("/", (request, response) => {
     response.status(200).send("Deu tudo certo!")
 })
 
-export default route;
+export default routes;
