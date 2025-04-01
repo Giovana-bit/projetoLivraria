@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "executar": "nodemon src/index.js",
-    "generate-migration":"npx typeorm -d ./src/database/data-source.js migrattion: generae ./src/database/migrations/db --output.js",
+    "generate-migration":"npx typeorm -d ./src/database/data-source.js migration: generate ./src/database/migrations/db --output.js",
     "run-migrations": "npx typeorm -d ./src/database/data-source.js migration:run"
   },
   "type": "module",
