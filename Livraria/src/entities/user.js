@@ -8,3 +8,5 @@ const user = new EntitySchema({
         name: {type: "varchar", length: 50, nullable: false}
     }
 });
+
+export default user
