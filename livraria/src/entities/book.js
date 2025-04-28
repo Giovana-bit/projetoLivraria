@@ -14,7 +14,7 @@ const author = new EntitySchema({
   },
   relations: {
     category: { type: "many-to-one", target: "category", nullable: false },
-    editor: { type: "many-to-one", target: "editor", nullable: false }
+    editor: { type: "many-to-one", target: "publisher", nullable: false }
   }
 });
 
