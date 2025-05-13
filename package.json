@@ -1,0 +1,20 @@
+{
+  "name": "livraria",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "executar": "nodemon src/index.js",
+    "generate-migration":"npx typeorm -d ./src/database/data-source.js migration:generate ./src/database/migrations/db --outputJs",
+    "run-migrations": "npx typeorm -d ./src/database/data-source.js migration:run"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mysql2": "^3.14.0",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.21"
+  }
+}
