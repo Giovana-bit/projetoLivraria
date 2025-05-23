@@ -7,7 +7,10 @@ const publisher = new EntitySchema({
         id: {primary: true, type: "int", generated: "increment"},
         publisher_name: {type: "varchar", length: 100, nullable: false},
         cnpj: {type: "varchar", length: 45, nullable: false},
-        email: {type: "varchar", length: 100, nullable: false}
+        email: {type: "varchar", length: 100, nullable: false},
+        createAt: {type: "datetime", nullable: false, default: () =>
+            "CURRENT_TIMESTAMP"},
+        deleteAt: {type: "datetime", nullable: true}
     }
 })
 
