@@ -5,7 +5,10 @@ const category = new EntitySchema({
     tableName: "category",
     columns: {
         id: {primary: true, type: "int", generated: "increment"},
-        name_category: {type: "varchar", length: 45, nullable: false}
+        name_category: {type: "varchar", length: 45, nullable: false},
+        createAt: {type: "datetime", nullable: false, default: () =>
+            "CURRENT_TIMESTAMP"},
+        deleteAt: {type: "datetime", nullable: true}
     }
 });
 
