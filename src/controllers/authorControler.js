@@ -41,6 +41,44 @@ routes.get("/:nameFound", async (request, response) => {
   return response.status(200).json({ response: authorFound });
 });
 
+// Atualizar autor
+routes.put("/:id", async (request, response) => {
+  const { id } = request.params;
+  const { name_author, nasc_author, nationality } = request.body;
+
+  if (!id || isNaN(id)) {
+    return response.status(400).send({ response: "ID inválido." });
+  }
+
+  if (!name_author || name_author.length < 1) {
+    return response.status(400).send({ response: "Campo name_author deve ter pelo menos 1 caractere." });
+  }
+
+  if (!nasc_author || nasc_author.length < 1) {
+    return response.status(400).send({ response: "Campo nasc_author deve ter pelo menos 1 caractere." });
+  }
+
+  if (!nationality || nationality.length < 1) {
+    return response.status(400).send({ response: "Campo nationality deve ter pelo menos 1 caractere." });
+  }
+
+  try {
+    const author = await authorRepository.findOne({
+      where: { id: Number(id), deleteAt: IsNull() }
+    });
+
+    if (!author) {
+      return response.status(404).send({ response: "Autor não encontrado ou já excluído." });
+    }
+
+    await authorRepository.update(Number(id), { name_author, nasc_author, nationality });
+
+    return response.status(200).send({ response: "Autor atualizado com sucesso!" });
+  } catch (error) {
+    return response.status(500).send({ erro: error.message });
+  }
+});
+
 // Soft Delete de Autor
 routes.delete("/:id", async (request, response) => {
   const { id } = request.params;
