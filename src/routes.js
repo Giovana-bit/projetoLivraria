@@ -3,6 +3,7 @@ import userController from "./controllers/userController.js";
 import authorController from "./controllers/authorControler.js";
 import category from "./controllers/category.js";
 import publisherController from "./controllers/publisherController.js";
+import bookController from "./controllers/bookController.js"; 
 
 
 const route = express();
@@ -11,5 +12,6 @@ route.use("/user", userController);
 route.use("/author", authorController);
 route.use("/category", category);
 route.use("/publisher", publisherController);
+route.use("/book", bookController);
 
 export default route;
