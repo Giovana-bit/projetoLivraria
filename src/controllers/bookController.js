@@ -51,7 +51,7 @@ route.post("/", async (request, response) => {
 
   } catch (err) {
     console.error("Erro ao cadastrar livro:", err);
-    return response.status(500).send({ response: "Erro interno ao cadastrar livro." });
+    return response.status(500).send({ response: err });
   }
 });
 
