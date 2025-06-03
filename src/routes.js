@@ -5,12 +5,13 @@ import category from "./controllers/category.js";
 import publisherController from "./controllers/publisherController.js";
 import bookController from "./controllers/bookController.js"; 
 import loginController from "./controllers/loginController.js";
+import {authenticate} from "./utils/jwt.js";
 
 
 const route = express();
 
 route.use("/user", userController);
-route.use("/author", authorController);
+route.use("/author", authenticate,authorController);
 route.use("/category", category);
 route.use("/publisher", publisherController);
 route.use("/book", bookController);
