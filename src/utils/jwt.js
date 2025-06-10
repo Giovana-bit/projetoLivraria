@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import User from "../entities/user.js";
 
-const secret = "chaveMiau";
+const secret = "Miau";
 
 function generateToken(payLoad) {
     return jwt.sign(payLoad, secret, {expiresIn: 60*60*5});
